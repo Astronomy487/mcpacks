@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>my resource packs</title>
+  <link rel="icon" href="squares/autumn.png">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/helvetica-neue-lt-pro');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+    
+    :root {
+      font-family: 'Helvetica Neue LT Pro', 'Noto Color Emoji', sans-serif;
+    }
+    main {
+      width: 32rem;
+      margin: 8rem auto;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+    }
+    td:nth-child(1) {
+      width: 80px;
+    }
+    td img {
+      height: 64px;
+      width: 64px;
+      image-rendering: pixelated;
+    }
+    @font-face {
+      font-family: 'Minecraft';
+      src: url('minecraft font.otf');
+    }
+    h2 {
+      font-weight: bold;
+      margin-top: 6rem;
+      text-align: left;
+      font-size: 2rem;
+    }
+    td:nth-child(3) {
+      width: 8rem;
+      text-align: right;
+    }
+    td a {
+      color: blue;
+      text-decoration: none;
+      display: block;
+      line-height: 125%;
+    }
+    td a:hover {
+      text-decoration: underline;
+    }
+    p, td {
+      line-height: 125%;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p>this is a collection of resource packs I've made for minecraft</p>
+    <p style="color: gray;">for some reason all my 1.20.2+ packs (pack_format: 18) are still showing up as 'for an older version of minecraft'. mojang What are you doing [it's okay because they still work]</p>
+  </main>
+  <script>
+    let packs = [
+      {
+        categoryName: "🏳‍🌈 Pride Packs",
+        categoryDescription: "These packs replace the XP bar and elytra with pride flags.",
+        packs: [
+          {versions: [15, 18], name: "Acearo Pride Pack"},
+          {versions: [15, 18], name: "Agender Pride Pack"},
+          {versions: [15, 18], name: "Aromantic Pride Pack"},
+          {versions: [15, 18], name: "Asexual Pride Pack"},
+          {versions: [15, 18], name: "Bigender Pride Pack"},
+          {versions: [15, 18], name: "Bisexual Pride Pack"},
+          {versions: [15, 18], name: "Demigender Pride Pack"},
+          {versions: [15, 18], name: "Demiromantic Pride Pack"},
+          {versions: [15, 18], name: "Demisexual Pride Pack"},
+          {versions: [15, 18], name: "Gay Pride Pack"},
+          {versions: [15, 18], name: "Genderfluid Pride Pack"},
+          {versions: [15, 18], name: "Genderqueer Pride Pack"},
+          {versions: [15, 18], name: "Intersex Pride Pack"},
+          {versions: [15, 18], name: "Lesbian Pride Pack"},
+          {versions: [15, 18], name: "Nonbinary Pride Pack"},
+          {versions: [15, 18], name: "Omnisexual Pride Pack"},
+          {versions: [15, 18], name: "Pansexual Pride Pack"},
+          {versions: [15, 18], name: "Philadelphia Pride Pack"},
+          {versions: [15, 18], name: "Polysexual Pride Pack"},
+          {versions: [15, 18], name: "Rainbow Pride Pack"},
+          {versions: [15, 18], name: "Transgender Pride Pack"}
+        ]
+      },
+      {
+        categoryName: "🍂 Autumn Packs",
+        categoryDescription: "These packs replace oak, birch, and dark oak leaves with autumnal variations. Designed to be compatible with default textures, Mizuno's 16 Craft textures, and programmer art textures.\n\nThe 'infinite' versions will always be autumnal. The non-'infinite' versions will cycle between normal and autumn over a 20-minute period (although if different leaf types aren't loaded at the same time, it will get out of sync!!! annoying)\n\nNote that jungles and swamps look kinda ugly because oak leaves will still be red :/ WHATEVER",
+        packs: [
+          {versions: [18], name: "autumn infinite"},
+          {versions: [18], name: "autumn mizuno infinite"},
+          {versions: [18], name: "autumn programmer infinite"},
+          {versions: [18], name: "autumn"},
+          {versions: [18], name: "autumn mizuno"},
+          {versions: [18], name: "autumn programmer"},
+        ]
+      },
+      {
+        categoryName: "🦐 random other stuff",
+        categoryDescription: "",
+        packs: [
+          {versions: [18], name: "Grimstone+Hellstone", description: "renames 'deepslate' and 'netherite' to 'grimstone' and 'hellstone' because they sound cooler"},
+          {versions: [18], name: "mizuno shulkers", description: "modification for mizuno's 16 craft to make all the shulker boxes look like shulker boxes"}
+        ]
+      }
+    ];
+    
+    let packFormatVersions = [];
+    packFormatVersions[15] = "1.20–1.20.1";
+    packFormatVersions[18] = "1.20.2–1.20.4";
+    
+    let main = document.querySelector("main");
+    for (let category of packs) {
+      let h2 = main.appendChild(document.createElement("h2"));
+      h2.innerText = category.categoryName;
+      let p = main.appendChild(document.createElement("p"));
+      p.innerText = category.categoryDescription;
+      let table = main.appendChild(document.createElement("table"));
+      for (let pack of category.packs) {
+        let tr = table.appendChild(document.createElement("tr"));
+        let td0 = tr.appendChild(document.createElement("td"));
+        let img = td0.appendChild(document.createElement("img"));
+        img.setAttribute("src", "squares/" + pack.name + ".png");
+        let td1 = tr.appendChild(document.createElement("td"));
+        td1.innerText = pack.name;
+        if (pack.description) {
+          let div = td1.appendChild(document.createElement("div"));
+          div.style.color = "gray";
+          div.innerText = pack.description;
+        }
+        let td2 = tr.appendChild(document.createElement("td"));
+        let already = false;
+        for (let version of pack.versions) {
+          //if (already) td2.appendChild(document.createElement("br"));
+          already = true;
+          let a = td2.appendChild(document.createElement("a"));
+          a.innerText = packFormatVersions[version];
+          a.setAttribute("target", "_blank");
+          a.setAttribute("href", "v"+version+"/"+pack.name+".zip");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
