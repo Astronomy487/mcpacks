@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Three Caves datapack</title>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+    
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 500;
+      user-select: none;
+    }
+    
+    h1, h2, p, h3, pre {
+      user-select: text;
+    }
+    
+    ::selection {
+      background: white;
+      color: black;
+      text-shadow: none;
+    }
+    
+    section {
+      width: 100%;
+      height: 105vh;
+      position: relative;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      text-shadow: 0 0 0.25rem black;
+    }
+    
+    section .center {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+    }
+    
+    h1 {
+      font-family: 'Minecraft', Inter, sans-serif;
+      -webkit-text-stroke: 3px white;
+      color: black;
+      font-weight: normal;
+      font-size: 20vh;
+      margin: 0;
+      margin-top: -4rem;
+    }
+    
+    h2 {
+      font-family: 'Minecraft', Inter, sans-serif;
+      color: white;
+      font-weight: normal;
+      font-size: 8vh;
+      margin: 0;
+      text-shadow: 0.5rem 0.5rem black;
+    }
+    
+    a {
+      color: #bff;
+    }
+    a:hover {
+      color: #8ff;
+    }
+    
+    .button {
+      font-family: inherit;
+      border: solid 1px white;
+      background-color: #00000088;
+      color: inherit;
+      font-size: 1rem;
+      font-weight: inherit;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: 0.1s;
+      text-decoration: none;
+    }
+    
+    .button:hover {
+      background-color: black;
+      color: inherit;
+    }
+    
+    .bro { /** horrible naming **/
+      display: inline-block;
+      width: min(48rem, calc(100vw - 4rem));
+      text-align: left;
+      font-size: 1.25rem;
+    }
+    
+    p {
+      line-height: 137.5%;
+    }
+  </style>
+</head>
+<body>
+  <section style="background-image: url(intro.png)">
+    <div class="center">
+      <h1>Three caves</h1>
+      <p>A Minecraft data pack that adds three new cave biomes</p>
+      <a class="button" href="../datapacks/48/Three Caves.zip">DOWNLOAD FOR 1.21</a>
+      <p style="font-size: 1rem; margin-top: 3rem;">Scroll to read more ↓</p>
+    </div>
+  </section>
+  <section style="background-image: url(fungus.png)">
+    <div class="center">
+      <h2>Fungus caves</h2>
+      <p>Caves overgrown with mushrooms and glow lichen that<br>generate beneath deep oceans and mushroom islands</p>
+    </div>
+  </section>
+  <section style="background-image: url(hot.png)">
+    <div class="center">
+      <h2>Hot caves</h2>
+      <p>Caves with lava and obsidian, magma block flats, and<br>basalt formations near the bottom of the world</p>
+    </div>
+  </section>
+  <section style="background-image: url(ice.png)" id="icesection">
+    <div class="center">
+      <h2>Ice caves</h2>
+      <p>Frozen caves covered in ice and snow with increased skeleton rates</p>
+      <p style="margin-top: -1rem; font-size: 1.125rem;">Icicles are dripstone retextured with <a href="../resourcepacks/34/Icicles.zip">a resource pack</a>; looks like <span style="text-decoration: underline;" onmouseenter="icesection.style.backgroundImage = 'url(ice-renderer.png)';" onmouseleave="icesection.style.backgroundImage = 'url(ice.png)';">this</span> otherwise<br>Alternatively, use <a href="../datapacks/48/Three Caves No Pointed Dripstone.zip">a version of the data pack without pointed dripstone in ice caves</a><br>If you know more about biome-specific textures, please hit me up so I can improve this!</p>
+    </div>
+    <img src="ice-renderer.png" style="height: 25vh; opacity: 0;">
+  </section>
+  <section style="background-image: url(tech.png); height: 80rem">
+    <div class="center">
+      <h2>Technical details</h2>
+      <div class="bro">
+        <p>This pack overwrites data/minecraft/dimension/overworld.json. This may conflict with other world generation datapacks active in a world. To make Three Caves compatible with another pack, use the following info for Three Caves biome generation in the overworld.json you want your world to actually use:</p>
+        <pre style="font-size: 1rem; border: solid 1px white; background-color: #00000088; padding: 1rem; line-height: 1rem;">
+{
+  "biome": "three_caves:fungus_cave",
+  "parameters": {
+    "continentalness": [-1.3,-1.2],
+    "depth": [0.7,0.9],
+    "erosion": [-1,1],
+    "humidity": [-1,1],
+    "offset": 0,
+    "temperature": [-1,1],
+    "weirdness": [-1,1]
+  }
+}, {
+  "biome": "three_caves:ice_cave",
+  "parameters": {
+    "continentalness": [-1,1],
+    "depth": [0.3,0.9],
+    "erosion": [0.3,1],
+    "humidity": [0.6,1],
+    "offset": 0,
+    "temperature": [-1,-0.5],
+    "weirdness": [0,1]
+  }
+}, {
+  "biome": "three_caves:hot_cave",
+  "parameters": {
+    "continentalness": [-1,1],
+    "depth": 1,
+    "erosion": [0.3,1],
+    "humidity": [0,0.2],
+    "offset": 0,
+    "temperature": [0,1],
+    "weirdness": [0,1]
+  }
+}</pre>
+        <p>The overworld.json in this data pack is just the vanilla overworld with these three biomes added.</p>
+        <p>// this is my first time making a world generation data pack so expect it to be a little jank</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

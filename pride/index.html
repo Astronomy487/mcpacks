@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pride packs</title>
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/minecraft-4');
+    
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      user-select: none;
+      margin: 0;
+    }
+    
+    h1 {
+      font-family: 'Minecraft', Inter, sans-serif;
+      font-weight: normal;
+      font-size: 6rem;
+      margin: 0;
+      margin-bottom: 1.5rem;
+      padding-top: calc(50vh - 7rem);
+    }
+    
+    h1, h2, p {
+      user-select: text;
+    }
+    
+    p {
+      margin: 0;
+    }
+    
+    section {
+      width: 100%;
+      height: 105vh;
+      position: relative;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      text-shadow: 0 0 0.5rem black;
+    }
+    
+    #catalogue {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      text-align: center;
+      width: 70%;
+      padding: 8rem 0;
+    }
+    
+    #catalogue a {
+      --size: 8rem;
+      height: var(--size);
+      width: var(--size);
+      margin: 0.5rem 0.75rem;
+      position: relative;
+      display: inline-block;
+      transition: 0.1s;
+    }
+    
+    #catalogue a:hover {
+      z-index: 2;
+    }
+    
+    #catalogue a img {
+      height: var(--size);
+      width: var(--size);
+      position: absolute;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+    }
+    
+    #catalogue a .flag {
+      border-radius: 8px;
+    }
+    
+    #catalogue a .packpng {
+      opacity: 0;
+      transition: 0.1s;
+      cursor: pointer;
+      image-rendering: pixelated;
+      outline: solid 4px white;
+      scale: 0.7;
+      border-radius: 4px;
+    }
+    
+    #catalogue a:hover .packpng {
+      opacity: 1;
+      scale: 1;
+    }
+    
+    select {
+      margin-bottom: 1rem;
+      font-family: inherit;
+      font-size: 1.25rem;
+      border: solid 1px white;
+      background-color: black;
+      padding: 0.5rem 1rem;
+      color: inherit;
+      border-radius: 8px;
+    }
+    
+    select option {
+      font-size: inherit;
+    }
+  </style>
+</head>
+<body>
+  <section style="background-image: url(steveisgay.png)">
+    <div style="padding-left: 8rem;">
+      <h1>Pride packs</h1>
+      <p>A collection of resource packs themed around pride flags</p>
+      <p>Makes client-side changes to XP bar and elytra</p>
+    </div>
+  </section>
+  <section style="background-image: url(alexislesbianblur.png)">
+    <div id="catalogue">
+      <select>
+        <option value="15">1.20–1.20.1</option>
+        <option value="18">1.20.2–1.21</option>
+      </select>
+      <br>
+    </div>
+  </section>
+  <script>
+    let options = document.querySelectorAll("select option");
+    options[options.length-1].setAttribute("selected", "selected");
+  </script>
+  <script>
+    [
+      {name: "Acearo", flag: "https://upload.wikimedia.org/wikipedia/commons/1/12/Aroace_flag.svg"},
+      {name: "Agender", flag: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Agender_pride_flag.svg"},
+      {name: "Aromantic", flag: "https://upload.wikimedia.org/wikipedia/commons/a/ad/Aromantic_Pride_Flag.svg "},
+      {name: "Asexual", flag: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Asexual_Pride_Flag.svg"},
+      {name: "Bigender", flag: "https://upload.wikimedia.org/wikipedia/commons/9/92/Bigender_Flag.svg"},
+      {name: "Bisexual", flag: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Bisexual_Pride_Flag.svg"},
+      {name: "Demigender", flag: "https://upload.wikimedia.org/wikipedia/commons/8/83/Deminonbinary_flag.svg"},
+      {name: "Demiromantic", flag: "https://upload.wikimedia.org/wikipedia/commons/3/36/Demiromantic_Pride_Flag.svg", left: true},
+      {name: "Demisexual", flag: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Demisexual_Pride_Flag.svg", left: true},
+      {name: "Gay", flag: "https://upload.wikimedia.org/wikipedia/commons/6/66/New_Gay_Pride_Flag.svg"},
+      {name: "Genderfluid", flag: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Genderfluidity_Pride-Flag.svg"},
+      {name: "Genderqueer", flag: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Genderqueer_Pride_Flag.svg"},
+      {name: "Intersex", flag: "https://upload.wikimedia.org/wikipedia/commons/3/38/Intersex_Pride_Flag.svg"},
+      {name: "Lesbian", flag: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Lesbian_pride_flag_2018.svg"},
+      {name: "Nonbinary", flag: "https://upload.wikimedia.org/wikipedia/commons/7/75/Nonbinary_flag.svg"},
+      {name: "Omnisexual", flag: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Omnisexuality_flag.svg"},
+      {name: "Pansexual", flag: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pansexuality_Pride_Flag.svg"},
+      {name: "Philadelphia", flag: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Philadelphia_Pride_Flag.svg"},
+      {name: "Polysexual", flag: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Polysexuality_Pride_Flag.svg"},
+      {name: "Rainbow", flag: "https://upload.wikimedia.org/wikipedia/commons/4/48/Gay_Pride_Flag.svg"},
+      {name: "Transgender", flag: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Transgender_Pride_flag.svg"}
+    ].forEach(function(x, i) {
+      let a = catalogue.appendChild(document.createElement("a"));
+      a.setAttribute("name", x.name);
+      a.href = "../resourcepacks/18/" + x.name + " Pride Pack.zip";
+      let img1 = a.appendChild(document.createElement("img"));
+      img1.src = x.flag;
+      if (x.left) img1.style.objectPosition = "left";
+      img1.setAttribute("class", "flag");
+      let img2 = a.appendChild(document.createElement("img"));
+      img2.src = "squares/" + x.name + " Pride Pack.png";
+      img2.setAttribute("class", "packpng");
+      if (i%7==6) catalogue.appendChild(document.createElement("br"));
+    });
+    
+    document.querySelector("select").onchange = function() {
+      for (let a of document.querySelectorAll("#catalogue a")) a.href = "../resourcepacks/"+this.value+"/" + a.getAttribute("name") + " Pride Pack.zip";
+    }
+  </script>
+</body>
+</html>
